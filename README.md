@@ -12,6 +12,8 @@ Mc Versioning 是一个简单易上手的Minecraft服务器客户端更新程序
 2. **智能检测变动文件**：发布新版本时Mc Versioning会自动检测到哪些文件改变，并自动生成差异记录
 3. **不删玩家的模组文件**：使用Mc Versioning玩家可以自由添加自己的mod而不用担心被误更新删除
 
+![mv.png](assets/mv.png)
+
 ## 安装教程
 
 > Mc Versioning是个易上手的软件，所以不会有难以理解的安装步骤
