@@ -25,6 +25,8 @@
 
 ### 启动MiniHttpServer
 
+> 如果你打算使用静态工具或者自己的服务端比如Apache或者Nginx，此章节可以跳过不看
+
 1. 在MiniHttpServer.jar文件旁新建一个文本文件，改名为start.bat，把下面的代码复制进去然后保存
 
 ```
