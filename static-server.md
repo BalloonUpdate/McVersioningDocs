@@ -75,7 +75,7 @@ FTP并不是一个具体的服务商，而是指的FTP协议，可以把文件�
 
 到此教程部分结束，如果你只是使用静态工具，不做一些高级的自定义操作，那么剩下的内容部分可以完全忽略不看！
 
-## 静态工具
+## 静态工具高级教程（选阅）
 
 静态工具是由一些脚本文件和一些可执行文件缝合而成的一个整合包（你没看错），这样的模块化设计对扩展和定制方面特别友好。静态工具的核心文件是一个叫`incremental-upload.exe`的文件。这是一个工具软件，可以将本地有修改的文件增量地上传到各个地方（对象存储或是FTP），未修改的文件不会上传，可以节省带宽和时间。具体的上传过程会由`incremental-upload.exe`调用具体命令行来完成。这个命令行可以自由配置，也就是说只要写好了调用命令行，那么`incremental-upload.exe`可以将文件上传到任何地方！包括私有的服务器。
 
@@ -251,19 +251,3 @@ commands:
 6. 重新启动`run.bat`，然后会多出来一个叫`custom`的选项，输入custom的序号按下回车，此时`incremental-upload`就会执行你自己的上传逻辑了
 7. 当然，一般切换上传目标之后，建议一并删除`tools/remote-structure.json`文件，使其重建远端目录结构数据
 8. 如果你需要添加多个服务商的支持，可以在`tools`目录下除了添加`custom`目录以外的目录，并修改`run.bat`文件，在这个脚本照葫芦画瓢，根据前面的代码复制并修改，添加上你自己的服务商名字和选项，再次删除`tools/remote-structure.json`文件并启动`run.bat`就可以看到效果了
-
-## 自由化部署
-
-如果你不喜欢用`incremental-upload`一键上传。而是偏好生成好状态文件`res.json`之后自己处理。你可以将`incremental-upload`切换为仅生成状态文件的模式。
-
-你可以将下面的代码保存到一个`bat`文件里，可以叫它`gen.bat`，然后保存关闭。
-
-```
-@echo off
-if exist updater\res.json move /Y updater\res.json res.json > nul
-tools\incremental-upload-0.0.0-windows-x64.exe --config tools\calculate-res-dot-json.yml
-if exist res.json move /Y res.json updater\res.json > nul
-pause
-```
-
-双击运行这个文件，就会仅刷新`updater\res.json`这个状态文件而不会执行任何上传操作了。之后你就可以把`updater`目录下的文件做自行处理了，无论是上传到私有服务器，还是存储空间都是没问题的。
