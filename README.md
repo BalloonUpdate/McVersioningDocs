@@ -29,7 +29,7 @@ Mc Versioning 是一个简单易上手的Minecraft服务器客户端更新程序
 + [服务端安装教程](server.md)
 + [客户端安装教程](client.md)
 + [静态工具教程](static-server.md)
-+ [常见问题解答](faq.md)
++ [常见问题解答（有技术门槛要求）](faq.md)
 + [public目录下的文件用途说明](public-files-illustration.md)
 + [Windows平台一键启动教程](javaagent-windows.md)
 + [Android平台一键启动教程](javaagent-android.md)
